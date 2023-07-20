@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Circle</title>
+    <link rel="stylesheet" href="res/css/main.css">
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+    <script src="res/js/cobf.js"></script>
+    <script src="res/js/interface.js"></script>
+</head>
+<body>
+<div class="results-wrapper" id="results" style="display: none">
+    <div class="results-window">
+        <h1>Results</h1>
+        <hr>
+        <h2 id="centre-result"></h2>
+        <h2 id="radius-result"></h2>
+        <div class="close-wrapper">
+            <button onclick="closeResults()">Close</button>
+        </div>
+    </div>
+</div>
+<div class="controls">
+    <button class="add" onclick="addPoint()">Add Point</button>
+    <button class="remove" onclick="removePoint()">Remove Last Point</button>
+    <button class="calculate" onclick="calculate()">Calculate</button>
+</div>
+<div class="points-wrapper" id="points">
+    <div class="point-wrapper" id="default-point">
+        <div class="value-wrapper">
+            <h1 class="value-name">X:</h1>
+            <input placeholder="Enter X Value" class="value-field x-value">
+        </div>
+        <div class="value-wrapper">
+            <h1 class="value-name">Y:</h1>
+            <input placeholder="Enter Y Value" class="value-field y-value">
+        </div>
+    </div>
+</div>
+</body>
+</html>
