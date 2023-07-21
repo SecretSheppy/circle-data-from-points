@@ -29,6 +29,7 @@ function leastSquareCircle (arrayOfPoints) {
     }
 
     console.log(arrayA);
+    console.log(transpose(arrayA));
     console.log(arrayB);
 
     // calculating A+
@@ -43,23 +44,30 @@ function leastSquareCircle (arrayOfPoints) {
         )
     );
 
-    console.log(aPlus);
+    console.log("det", math.det(math.multiply(arrayA, transpose(arrayA))));
+    console.log("aPlusArray: ", aPlus);
+    console.log("aPINV: ", math.pinv(arrayA));
 
     let arrayX = math.multiply(
-        aPlus,
+        math.pinv(arrayA),
         arrayB
-    )
+    );
+
+    console.log(arrayX);
 
     let a = arrayX[0],
         b = arrayX[1],
         c = arrayX[2];
 
+    let decimalRoundingValue = document.getElementById("rounding-value").value;
+
     let circleData = {
+        "pointsArray": arrayOfPoints,
         "centre": {
-            "x": a/2,
-            "y": b/2
+            "x": (a/2).toFixed(decimalRoundingValue),
+            "y": (b/2).toFixed(decimalRoundingValue)
         },
-        "radius": (math.sqrt(4 * c + a ** 2 + b ** 2)) / 2
+        "radius": ((math.sqrt(4 * c + a ** 2 + b ** 2)) / 2).toFixed(decimalRoundingValue)
     }
 
     return circleData;

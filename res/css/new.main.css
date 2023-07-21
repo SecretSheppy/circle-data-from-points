@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+p,
+button,
+th {
+    font-family: 'Lato', sans-serif;
+    color: #212121;
+}
+
+h1 {
+    font-size: 26px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+hr {
+    border: none;
+    border-bottom: solid 2px #c7c7c7;
+    margin: 10px 0;
+}
+
+.one-central-object {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.larger-font {
+    font-size: 18px;
+}
+
+.spacer {
+    margin-bottom: 20px;
+}
+
+#eqn1,
+#eqn2,
+#eqn3 {
+    width: 45px;
+    aspect-ratio: 1/1;
+}
+
+#centre-x,
+#centre-y,
+#radius {
+    width: 90px;
+}
+
+#centre-x:focus,
+#centre-y:focus,
+#radius:focus,
+#eqn1:focus,
+#eqn2:focus,
+#eqn3:focus {
+    background-color: #fff;
+}
+
+.float-bottom {
+    position: absolute;
+    bottom: 30px;
+}
+
+input {
+    padding: 5px;
+    border-radius: 10px;
+    border: solid 2px #c7c7c7;
+    width: 50px;
+    outline: none;
+    font-size: 18px;
+    text-align: center;
+    height: 45px;
+    box-sizing: border-box;
+}
+
+input:focus {
+    background-color: #e0e0e0;
+}
+
+button {
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #c7c7c7;
+    color: #fff;
+    border: solid 2px #c7c7c7;
+    font-size: 18px;
+    height: 45px;
+}
+
+button:hover {
+    opacity: 0.6;
+}
+
+.panel {
+    position: absolute;
+    height: 100vh;
+    width: 22vw;
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+table input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.two-inline-objects {
+    display: flex;
+    gap: 20px;
+}
+
+.right {
+    right: 0;
+}
+
+.main {
+    margin: 0 auto;
+    width: fit-content;
+    padding: 30px;
+    height: 100vh;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+table {
+    table-layout: fixed;
+    width: 40vw;
+    border-collapse: collapse;
+}
+
+
+th {
+    padding: 20px 20px;
+    font-size: 22px;
+}
+
+td {
+    padding: 5px 20px;
+}
+
+th,
+td {
+    border-left: solid 2px #c7c7c7;
+}
+
+th:last-child,
+td:last-child {
+    border-right: solid 2px #c7c7c7;
+}
+
+.bigger-buttons button {
+    width: 100px;
+}
+
+.bigger-buttons button:first-child {
+    margin-right: 5px;
+}
+
+.active {
+    background-color: #29b61f;
+    border: solid 2px #29b61f;
+}
+
+.inactive {
+    background-color: red;
+    border: solid 2px red;
+}
+
+.calculate-button {
+    width: 200px;
+    background-color: #25a2ea;
+    border: solid 2px #25a2ea;
+}
+
+.history {
+    background-color: #c7c7c7;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.history h2 {
+    color: #fff;
+}
+
+@media screen and (max-width: 100px) {
+    .bigger-buttons button {
+        width: 70px;
+    }
+}

@@ -2,41 +2,106 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Circle</title>
-    <link rel="stylesheet" href="res/css/main.css">
-    <script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js></script>
+    <title>Circle From Points</title>
+    <link rel="stylesheet" href="res/css/new.main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <script src="res/js/math.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
-    <script src="res/js/cobf.js"></script>
+    <script src="res/js/cobf.js" defer></script>
     <script src="res/js/interface.js"></script>
 </head>
 <body>
-<div class="results-wrapper" id="results" style="display: none">
-    <div class="results-window">
-        <h1>Results</h1>
-        <hr>
-        <h2 id="centre-result"></h2>
-        <h2 id="radius-result"></h2>
-        <div class="close-wrapper">
-            <button onclick="closeResults()">Close</button>
-        </div>
+<div class="panel">
+    <h1>Circle From Points</h1>
+    <hr class="spacer">
+    <div class="two-inline-objects spacer">
+        <h2>Create <input id="new-points"> new points</h2>
+        <button onclick="addPoint()">Create</button>
+    </div>
+    <div class="one-central-object spacer">
+        <button onclick="calculate()" class="calculate-button">Calculate</button>
+    </div>
+    <h1>Settings</h1>
+    <hr class="spacer">
+    <div class="spacer">
+        <h2>Round to <input value="2" id="rounding-value"> decimal places</h2>
+    </div>
+    <h1>About</h1>
+    <hr class="spacer">
+    <div class="spacer">
+        <p class="spacer">
+            This software uses the "Least Square Circle" Algorithm to calculate the
+            circle of best fit given a set of points.
+            The mathematical method for this algorithm can be found
+            <a href="https://lucidar.me/en/mathematics/least-squares-fitting-of-circle/">here (lucidar.me)</a>.
+        </p>
+        <p>
+            This program is written in pure javascript and provided for free by
+            SecretSheppy under the MIT License. This program uses the math.js library,
+            see ./res/js/math.js.LICENSE.txt for license information.
+        </p>
     </div>
 </div>
-<div class="controls">
-    <button class="add" onclick="addPoint()">Add Point</button>
-    <button class="remove" onclick="removePoint()">Remove Last Point</button>
-    <button class="calculate" onclick="calculate()">Calculate</button>
-</div>
-<div class="points-wrapper" id="points">
-    <div class="point-wrapper" id="default-point">
-        <div class="value-wrapper">
-            <h1 class="value-name">X:</h1>
-            <input placeholder="Enter X Value" class="value-field x-value">
-        </div>
-        <div class="value-wrapper">
-            <h1 class="value-name">Y:</h1>
-            <input placeholder="Enter Y Value" class="value-field y-value">
+<div class="panel right">
+    <h1>Results</h1>
+    <hr class="spacer">
+    <div>
+        <h2 class="spacer">Center</h2>
+        <div class="one-central-object spacer larger-font">( <input id="centre-x" readonly> , <input id="centre-y" readonly> )</div>
+    </div>
+    <div>
+        <h2 class="spacer">Radius</h2>
+        <div class="one-central-object spacer larger-font">
+            <input id="radius" readonly>
         </div>
     </div>
+    <div>
+        <h2 class="spacer">Equation</h2>
+        <div class="one-central-object spacer larger-font">( x + <input id="eqn1" readonly> ) <sup>2</sup> + ( y + <input id="eqn2" readonly> ) <sup>2</sup> = <input id="eqn3" readonly> <sup>2</sup></div>
+    </div>
+    <h1>Session Results History</h1>
+    <hr class="spacer">
+    <div id="session-history">
+
+    </div>
+</div>
+<div class="main">
+    <table id="points-table">
+        <tr>
+            <th>X</th>
+            <th>Y</th>
+            <th>Action</th>
+        </tr>
+        <tr id="point-1-super">
+            <td><input id="point-1" class="x-value"></td>
+            <td><input class="y-value"></td>
+            <td>
+                <div class="one-central-object bigger-buttons">
+                    <button class="active" id="point-1-active" onclick="toggleActive(this.id)">Active</button><button data-id-to-delete="point-1-super" id="point-1-delete" onclick="removePoint(this.id)">Delete</button>
+                </div>
+            </td>
+        </tr>
+        <tr id="point-2-super">
+            <td><input id="point-2" class="x-value"></td>
+            <td><input class="y-value"></td>
+            <td>
+                <div class="one-central-object bigger-buttons">
+                    <button class="active" id="point-2-active" onclick="toggleActive(this.id)">Active</button><button data-id-to-delete="point-2-super" id="point-2-delete" onclick="removePoint(this.id)">Delete</button>
+                </div>
+            </td>
+        </tr>
+        <tr id="point-3-super">
+            <td><input id="point-3" class="x-value"></td>
+            <td><input class="y-value"></td>
+            <td>
+                <div class="one-central-object bigger-buttons">
+                    <button class="active" id="point-3-active" onclick="toggleActive(this.id)">Active</button><button data-id-to-delete="point-3-super" id="point-3-delete" onclick="removePoint(this.id)">Delete</button>
+                </div>
+            </td>
+        </tr>
+    </table>
 </div>
 </body>
 </html>
